@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">                                              <!--Metadata of Site-->
+    <meta name="description" content="A site made by Evident4279. Though it is random it is still theirs."> 
+    <meta name="author" content="Evident">
+    <meta name="keywords" content="Evident, evident4279">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Calculator</title>
+</head>
+<header>
+    <div>
+        <caption><h1>Income Tax Calculator</h1>
+            <tr>
+                <a href="https://evident4279.github.io/website/"><td colspan="2">Home</td></a>
+                <a href="https://evident4279.github.io/website/projects"><td colspan="2">Projects</td></a>        <!--.. to go outside the directory-->
+                <a href=""><td colspan="2">Coming Soon</td></a>
+            </tr>
+        </caption><br><hr>
+    </div>
+</header>
+<head>
+    <article>
+        <table border="2" cellspacing="2" cellpadding="2">
+            <tr>
+                <td colspan="2">Amount of Net Taxable</td>
+                <td >Basic + Tax Rate</td>
+                <td colspan="2">Examples <br> (Taxable Income & Income Tax)</td>
+            </tr>
+            <tr>
+                <td colspan="2">P250,000 and below</td>
+                <td>0%</td>
+                <td>P180,000.00</td>
+                <td>P0</td>
+            </tr>
+            <tr>
+                <td colspan="2">P250,000 to P400,000</td>
+                <td>20% of the excess over P250,000</td>
+                <td>P320,000.00</td>
+                <td>P14,000.00</td>
+            </tr>
+            <tr>
+                <td colspan="2">P400,000 to P800,000</td>
+                <td>P30,000 + 25% of the excess over P400,000</td>
+                <td>P520,000.00</td>
+                <td>P60,000.00</td>
+            </tr>
+            <tr>
+                <td colspan="2">P800,000 to P2,000,000</td>
+                <td>P130,000 + 30% of the excess over P800,000</td>
+                <td>P930,000.00</td>
+                <td>P169,000.00</td>
+            </tr>
+            <tr>
+                <td colspan="2">P2,000,000 to P8,000,000</td>
+                <td>P490,000 + 32% of the excess over P2,000,000</td>
+                <td>P2,400,000.00</td>
+                <td>P618,000.00</td>
+            </tr>
+            <tr>
+                <td colspan="2">Above P8,000,000</td>
+                <td>P2,410,000 + 35% of the excess over P8,000,000</td>
+                <td>P10,000,000.00</td>
+                <td>P3,110,000.00</td>
+            </tr>
+        </table>
+    </article>
+</head>
+<body>
+    <br><br>
+    <label>Enter Income: </label>
+        <input type="number" id="income" multiple>
+        <input type="button" value="Submit" onclick="calculator()">
+    <p>Income Tax: <b><span id="tax"></span></p></b>
+
+        <script>
+            function calculator(){
+            var income = parseFloat(document.getElementById("income").value);
+            var tax;
+            if(income >= 0 && income <= 250000){
+                tax = 0;
+            } else if(income >= 250000 && income <= 400000){
+                tax = (income-250000)*0.20;
+            } else if(income >= 400000 && income <= 800000){
+                tax = ((income-400000)*0.25) + 30000;
+            } else if(income >= 800000 && income <= 2000000){
+                tax = ((income-800000)*0.30) + 130000;
+            } else if(income >= 2000000 && income <= 8000000){
+                tax = ((income-2000000)*0.32) + 490000;
+            } else if(income >= 8000000){
+                tax = ((income-8000000)*0.35) + 2410000;
+            }
+            const formatter = new Intl.NumberFormat('en-US', { style: 'currency',  currency: 'PHP',});
+            document.getElementById("tax").innerHTML = formatter.format(tax);
+            }
+        </script>
+</body>
+</html>
