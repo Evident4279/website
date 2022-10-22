@@ -38,7 +38,7 @@
                         var Score = parseInt(document.getElementById("score").value);           // getelement calls the variable but not the value. Using .value calls the value of the called variable 
                         var Items = parseInt(document.getElementById('items').value);
                         var Base = parseInt(document.getElementById("base").value);
-                        var grade = Math.round(Score/Items)*(100-Base)+Base;
+                        var grade = (Score/Items).toFixed(2)*(100-Base)+Base;
                         var gpa;
                             if (grade <= 100 && grade >= 92){
                                 gpa = "A";
