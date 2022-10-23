@@ -6,11 +6,11 @@
     <meta name="author" content="Evident">
     <meta name="keywords" content="Evident, evident4279">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade Computation</title>
+    <title>Nth Factorial, Sum and Average</title>
 </head>
 <header>
     <div>
-        <caption><h1>Grade Computation</h1>
+        <caption><h1>Nth Factorial, Sum and Average</h1>
             <tr>
                 <a href="https://evident4279.github.io/website/"><td colspan="2">Home</td></a>
                 <a href="https://evident4279.github.io/website/projects"><td colspan="2">Projects</td></a>        <!--.. to go outside the directory-->
@@ -19,4 +19,59 @@
         </caption><br><hr>
     </div>
 </header>
+<head>
+</head>
+<body>
+    <div>
+        <label><h4>N<sup>th</sup> Factorial</h4></label>
+        The factorial of <input type="numbers" id="n" placeholder="Enter a number" oninput="factorial()"> is <b><span id="factor">...</span></b>
+            <script>
+                function factorial(){
+                    var n = parseInt(document.getElementById("n").value);
+                    var count = n;
+
+                    while(count > 1){
+                        count--;
+                        n = n * count;
+                    }
+                    document.getElementById("factor").innerHTML= n;
+                }
+            </script>
+        <br><br><hr>
+    </div>
+    <div>
+        <label><h4>Sum of the First <i>n</i> Numbers</h4></label>
+        <input type="numbers" id="sum" placeholder="Enter a number" oninput="sumN()">
+        <p>The total sum is: <b><span id="total"></span></b></p>
+            <script>
+                function sumN(){
+                    var n = parseInt(document.getElementById("sum").value);
+                    var count = parseInt(n);
+                    do {
+                        count--;
+                        n = n + count;
+                    } while (count > 0);
+                    document.getElementById("total").innerHTML= n;
+                }
+            </script>
+        <hr>
+    </div>
+    <div>
+        <label><h4>Calculate the Average of the First <i>n</i> Numbers</h4></label>
+        <input type="numbers" id="avgIn" placeholder="Enter a number" oninput="average()">
+        <p>The average is: <b><span id="avg"></span></b></p>
+            <script>
+                function average(){
+                    var n = parseInt(document.getElementById("avgIn").value);
+                    var total = 0;
+
+                    for (let i = 1; i <= n; i++) {
+                        total = parseInt(total + i); 
+                    }
+                    total = parseFloat(total/n)
+                    document.getElementById("avg").innerHTML=total;
+                }
+            </script>
+    </div>
+</body>
 </html>
