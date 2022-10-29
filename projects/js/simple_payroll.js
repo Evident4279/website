@@ -6,7 +6,6 @@ var numTable = 0;
 function remove() { 
     var resp = document.getElementById("specify").value;
 
-    document.getElementById("test").innerHTML=resp;    
     document.getElementById("table").deleteRow(resp);
     document.getElementById("numbering").deleteRow(numTable);
 
