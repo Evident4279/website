@@ -6,11 +6,13 @@
     <meta name="author" content="Evident">
     <meta name="keywords" content="Evident, evident4279">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade Computation</title>
+    <title>Simple Payroll</title>
+    <link rel="stylesheet" type="text/css" rel="noopener" target="_blank" href="css/simple_payroll.css">
+    <script src="js/simple_payroll.js"></script>
 </head>
 <header>
     <div>
-        <caption><h1>Grade Computation</h1>
+        <caption><h1>Simple Payroll</h1>
             <tr>
                 <a href="https://evident4279.github.io/website/"><td colspan="2">Home</td></a>
                 <a href="https://evident4279.github.io/website/projects"><td colspan="2">Projects</td></a>        <!--.. to go outside the directory-->
@@ -19,4 +21,72 @@
         </caption><br><hr>
     </div>
 </header>
+<body>
+    <div>
+        <form>
+            <p>
+                <label>Employee Name: </label>
+                    <input onfocus=this.value='' type="text" id="nameIn">
+            </p>
+            <p>
+                <label>Days Worked: </label>
+                    <input onfocus=this.value='' type="number" id="dwIn">
+            </p>
+            <p>
+                <label>Daily Rate: </label>
+                    <input onfocus=this.value='' type="number" id="drIn">
+            </p>
+            <p>
+                <label>Deduction Amount: </label>
+                    <input onfocus=this.value='' type="number" id="daIn">
+            </p>
+        </form>
+            <input type="button" value="Add" onclick="payroll()">
+    </div>
+    <hr><br>
+    <div class="wrap">
+        <div class="cell-wrap left">
+            <table id="numbering" class="left">
+                <td>No.</td>
+            </table>
+        </div>
+        <div class="cell-wrap right">
+            <table id="table" class="right">
+                <thead>
+                    <td>Employee Name</td>
+                    <td>Days Worked</td>
+                    <td>Daily Rate</td>
+                    <td>Gross Pay</td>
+                    <td>Deduction Amount</td>
+                    <td>Net Pay</td>
+                </thead>
+            </table><br>
+        </div>
+    </div>
+    <div>
+        <p>Remove row:</p>
+        <input onfocus=this.value='' type="number" id="specify" multiple>
+        <input type="button" value="Remove" onclick="remove()">
+        <span id="test"></span>
+    </div>
+</body>
 </html>
+<!--
+        1. The payroll program should input the following:
+
+Employee Name         Days Worked          Daily Rate      Deduction Amount
+
+2. During Addition, the program should display the following in a table:
+
+No.    Employee Name      Days Worked      Daily Rate      Gross Pay     Deduction Amount    Net Pay
+
+where:
+
+          No. = is the Payroll List Line number
+
+          Gross Pay = Days Worked * Daily Rate
+
+           Net Pay = Gross Pay - Deduction Amount
+
+ 3. During Deletion, the program should ask for the Line Number to delete and update the table
+-->
